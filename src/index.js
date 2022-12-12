@@ -1,6 +1,6 @@
 const express = require("express");
 
-const {PORT} = require('./config/serverConfig.js')
+const {PORT} = require('./config/serverConfig.js');
 
 const setupAndstartServer = async function () {
   const app = express();
