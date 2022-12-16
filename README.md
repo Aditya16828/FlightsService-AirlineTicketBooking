@@ -48,4 +48,15 @@
 
 
 ## Creating tables in DB
-- 
+- **For DB City**
+  - check if u r already in src/, if not then navigate into src/ and type the following command:
+  `npx sequelize db:model --name=City --attributes=name:String`
+  - Property `id`, `createdAt` and `updatedAt` will be created automatically by sequelize-cli.
+  - Now, got to _migrations/_ and _models/_, in _migrations/_ there will be a file as `xxxxxxxxxxxxxx-create-city.js` and _models/_ will contain `city.js`.
+  - Make the necessary changes required in the corresponding files. **(Remember that both the files should be consistent)**
+  - Then, run the command `npx sequelize db:migrate` to apply the migrations.
+  - _You may got to mysql local server to view or crosscheck the changes._
+
+
+## Insertion in DB tables
+- **For City DB**
