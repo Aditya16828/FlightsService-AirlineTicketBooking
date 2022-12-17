@@ -30,7 +30,7 @@ class CityService {
     // UPDATE
     async updateCity(cityId, data) {
         try{
-            const city = await this.CityRepository.updateCity(cityId, data);
+            const city = await this.cityRepository.updateCity(cityId, data);
             return city;
         } catch(error){
             console.log("Error in service layer");
@@ -39,9 +39,9 @@ class CityService {
     }
 
     // DELETE
-    async deleteCity() {
+    async deleteCity(cityId) {
         try{
-            const response = await this.CityRepository.deleteCity(cityId);
+            const response = await this.cityRepository.deleteCity(cityId);
             return response;
         } catch(error){
             console.log("Error in service layer");
