@@ -41,6 +41,8 @@
   - name
   - city_id
   - address
+  - created_at
+  - updated_at
 
 - _1 airplane_ can be used in _more than 1 flights_. Hence, there is a **one-to-many relationship between Airplane and Flights table**.
 - _1 city_ can have _many airports_ but _1 airport_ belongs to only _1 city_. **One-to-many relationship between City and Airport table**.
@@ -57,6 +59,14 @@
   - Then, run the command `npx sequelize db:migrate` to apply the migrations.
   - _You may got to mysql local server to view or crosscheck the changes._
 
+**GENERAL NOTE BEFORE PROCEEDING**
+- REPOSITORY FOLDER -> should contain only those files interacting directly with the database.
+  
+- SERVICES FOLDER -> should contain those files having business logic. Will extract data from the database using the APIs exposed by the repository folder(layer).
 
-## Insertion in DB tables
+- CONTROLLER FOLDER -> should contain those files which would help in receiving the request from client-side and do the desired task using the APIs exposed by the services folder(layer).
+
+- ROUTES FOLDER -> should contain all the routes; this helps in avoiding the common prefix in the request url.
+
+## Creating CRUD APIs
 - **For City DB**

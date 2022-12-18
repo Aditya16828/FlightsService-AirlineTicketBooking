@@ -13,7 +13,7 @@ const create = async (req, res) => {
             data: city,
             success: true,
             message: "Successfully created a city.",
-            err: {},
+            err: {}
         });
     } catch (error) {
         console.log("Error in controller layer");
@@ -21,7 +21,7 @@ const create = async (req, res) => {
             data: {},
             success: false,
             message: "Not able to create city (error in controller layer)",
-            err: error,
+            err: error
         });
     }
 };
@@ -38,7 +38,7 @@ const get = async (req, res) => {
             data: city,
             success: true,
             message: "Successfully created a city.",
-            err: {},
+            err: {}
         });
     } catch (error) {
         console.log("Error in controller layer");
@@ -46,7 +46,7 @@ const get = async (req, res) => {
             data: {},
             success: false,
             message: "Not able to get city (error in controller layer)",
-            err: error,
+            err: error
         });
     }
 };
@@ -63,7 +63,7 @@ const update = async (req, res) => {
             data: city,
             success: true,
             message: "Successfully created a city.",
-            err: {},
+            err: {}
         });
     } catch (error) {
         console.log("Error in controller layer");
@@ -71,7 +71,7 @@ const update = async (req, res) => {
             data: {},
             success: false,
             message: "Not able to update city (error in controller layer)",
-            err: error,
+            err: error
         });
     }
 };
@@ -88,7 +88,7 @@ const destroy = async (req, res) => {
             data: response,
             success: true,
             message: "Successfully deleted a city.",
-            err: {},
+            err: {}
         });
     } catch (error) {
         console.log("Error in controller layer");
@@ -96,9 +96,30 @@ const destroy = async (req, res) => {
             data: {},
             success: false,
             message: "Not able to delete city (error in controller layer)",
-            err: error,
+            err: error
         });
     }
 };
 
-module.exports = {create, get, update, destroy};
+
+const getAll = async (req, res) => {
+    try{
+        const cities = await cityserviceobj.getAll(req.query);
+        return res.status(200).json({
+            data: cities,
+            success: true,
+            message: "Successfully fetched list of all cities.",
+            err: {}
+        })
+    } catch(error){
+        console.log("Error in controller layer");
+        res.status(500).json({
+            data: {},
+            success: false,
+            message: "Not able to fetch cities (error in controller layer)",
+            err: error
+        });
+    }
+}
+
+module.exports = {create, get, update, destroy, getAll};

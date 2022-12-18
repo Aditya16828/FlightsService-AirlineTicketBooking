@@ -8,4 +8,6 @@ router.get('/city/:id', CityController.get); // READ
 router.patch('/city/:id', CityController.update); // UPDATE
 router.delete('/city/:id', CityController.destroy); // DELETE
 
+router.get('/city', CityController.getAll);
+
 module.exports = router;

@@ -1,4 +1,5 @@
-const {City} = require('../models/index.js');
+const {City, sequelize} = require('../models/index.js');
+const { QueryTypes, Op } = require('sequelize');
 
 class CityRepository {
 
@@ -53,6 +54,27 @@ class CityRepository {
             return true;
         } catch(error){
             console.log("Error in repository layer");
+            throw {error};
+        }
+    }
+
+    async getAllCities({name}){
+        try{
+            if(name){
+                const cities = await City.findAll({
+                    where:{
+                        name: {
+                            // [Op.like]: name+'%'
+                            [Op.startsWith]: name
+                        }
+                    }
+                });
+                return cities;
+            }
+            const cities = await sequelize.query('select * from Cities', {type: QueryTypes.SELECT});
+            return cities;
+        } catch(error){
+            console.log(error);
             throw {error};
         }
     }
