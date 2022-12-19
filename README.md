@@ -68,5 +68,7 @@
 
 - ROUTES FOLDER -> should contain all the routes; this helps in avoiding the common prefix in the request url.
 
+- SEEDER FOLDER -> (will help in development) helps to seed some data or put some starting data/starting value.
+
 ## Creating CRUD APIs
 - **For City DB**
