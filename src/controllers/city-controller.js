@@ -26,6 +26,28 @@ const create = async (req, res) => {
     }
 };
 
+const createCities = async (req, res) => {
+    try {
+        console.log(req.body);
+        // const cities = {};
+        const cities = await cityserviceobj.createCities(req.body);
+        return res.status(201).json({
+            data: cities,
+            success: true,
+            message: "Successfully created cities.",
+            err: {}
+        });
+    } catch (error) {
+        console.log("Error in controller layer");
+        res.status(500).json({
+            data: {},
+            success: false,
+            message: "Not able to create city (error in controller layer)",
+            err: error
+        });
+    }
+}
+
 // READ
 /**
  * GET
@@ -62,7 +84,7 @@ const update = async (req, res) => {
         return res.status(200).json({
             data: city,
             success: true,
-            message: "Successfully created a city.",
+            message: "Successfully updated a city.",
             err: {}
         });
     } catch (error) {
@@ -122,4 +144,4 @@ const getAll = async (req, res) => {
     }
 }
 
-module.exports = {create, get, update, destroy, getAll};
+module.exports = {create, get, update, destroy, getAll, createCities};

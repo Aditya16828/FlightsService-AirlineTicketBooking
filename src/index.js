@@ -24,17 +24,23 @@ const setupAndstartServer = async () => {
 		if(process.env.SYNC_DB){ 
 			sequelize.sync({alter: true});
 		}
-		const city = await City.findOne({
-			where: {
-				id: 13
-			}
-		})
-		const airports = await city.getAirports();
-		console.log(city, airports);
+		// const city = await City.findOne({
+		// 	where: {
+		// 		id: 13
+		// 	}
+		// })
+		// const airports = await city.getAirports();
+		// console.log(city, airports);
 
 		// await city.createAirport({
 		// 	name: 'Jindal Vijaynagar Airport'
 		// });
+		// const city = await City.findOne({where: {id: 19}});
+		// await city.createAirports([
+		// 	{name: 'Kanpur Civil Airport'},
+		// 	{name: 'Kanpur Military Airport'},
+		// 	{name: 'Kanpur public airport'}
+		// ]);
     });
 };
 
