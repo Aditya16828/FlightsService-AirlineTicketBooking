@@ -21,6 +21,7 @@ const setupAndstartServer = async () => {
         // const airports = await Airport.findAll({where:{cityId:13}, include: City});
         // console.log(JSON.stringify(airports, null, 2));
 
+		// console.log(typeof process.env.SYNC_DB);
 		if(process.env.SYNC_DB){ 
 			sequelize.sync({alter: true});
 		}

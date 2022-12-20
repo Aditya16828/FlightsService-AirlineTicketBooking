@@ -27,12 +27,15 @@
   - capacity
 - Flights Table
   - id
+  - airplaneid
   - src_airport_id
   - dest_airport_id
   - arrival_datetime
   - departure_datetime
   - flight_number
-  - airport_id
+  - price
+  - boardingGate
+  - totalSeats
 - City table
   - id
   - name
