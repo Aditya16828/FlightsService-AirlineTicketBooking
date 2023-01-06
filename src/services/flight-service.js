@@ -1,5 +1,5 @@
 const {FlightRepository, AirplaneRepository} = require('../repository/index');
-const {greaterTime} = require('../utils/helper');
+const {greaterTime} = require('../utils/greaterTime');
 
 class FLightService{
     constructor(){

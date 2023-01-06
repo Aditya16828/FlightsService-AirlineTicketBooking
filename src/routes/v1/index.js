@@ -1,14 +1,15 @@
 const express = require('express');
 const {CityController, AirportController, FlightController} = require('../../controllers/index');
+const { FlightMiddlewares } = require('../../middlewares');
 
 const router = express.Router();
 
-router.post('/city', CityController.create); // CREATE
-router.post('/cities', CityController.createCities);
-router.get('/city/:id', CityController.get); // READ
-router.get('/city', CityController.getAll);
-router.patch('/city/:id', CityController.update); // UPDATE
-router.delete('/city/:id', CityController.destroy); // DELETE
+router.post('/city', CityController.create); // CREATE city
+router.post('/cities', CityController.createCities); // CREATE multiple cities
+router.get('/city/:id', CityController.get); // READ city
+router.get('/city', CityController.getAll); // READ multiple cities
+router.patch('/city/:id', CityController.update); // UPDATE city
+router.delete('/city/:id', CityController.destroy); // DELETE city
 
 
 router.post('/city/airports/:cityid', AirportController.create); // (creating airports/airport)
@@ -18,7 +19,7 @@ router.delete('/airport/:id', AirportController.deleteAirport); // (update a par
 router.patch('/airport/:id', AirportController.updateAirport); // (delete a particular airport)
 
 
-router.post('/flights', FlightController.create);
+router.post('/flights', FlightMiddlewares.validateCreateFlight, FlightController.create);
 router.get('/flights/:id', FlightController.get);
 router.get('/flights', FlightController.getFlights);
 
