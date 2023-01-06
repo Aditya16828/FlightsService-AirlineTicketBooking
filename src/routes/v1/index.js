@@ -12,8 +12,8 @@ router.patch('/city/:id', CityController.update); // UPDATE city
 router.delete('/city/:id', CityController.destroy); // DELETE city
 
 
-router.post('/city/airports/:cityid', AirportController.create); // (creating airports/airport)
-router.get('/city/airports/:cityid', AirportController.get); // (Read all the airports for a city)
+router.post('/city/airport/:cityid', AirportController.create); // (creating airports/airport)
+router.get('/city/airport/:cityid', AirportController.get); // (Read all the airports for a city)
 router.get('/airport/:id', AirportController.getAirport); // (Read a particular airport for a city)
 router.delete('/airport/:id', AirportController.deleteAirport); // (update a particular airport)
 router.patch('/airport/:id', AirportController.updateAirport); // (delete a particular airport)

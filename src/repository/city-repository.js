@@ -15,15 +15,6 @@ class CityRepository {
 
     async createCities(name) {
         try {
-            // let cities = [];
-            // for (let i = 0; i < name.length; i++) {
-            //     cities.push(await City.create({ name: name[i] }));
-            // }
-            // console.log(name);
-            // let nameObj = [];
-            // for(let i=0;i<name.length;i++){
-            //     nameObj.push({name: name[i]});
-            // }
             const cities = await City.bulkCreate(name);
             return cities;
         } catch (error) {
