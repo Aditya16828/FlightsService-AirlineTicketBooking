@@ -32,9 +32,8 @@ class FlightRepository{
             const flight = await Flight.create(data);
             return flight;
         } catch(error) {
-            console.log("Error in Repository layer, cannot create flight");
-            console.log(error);
-            throw {error};
+            error = {...error, from: "Repository Layer"};
+            throw error;
         }
     }
 
@@ -43,8 +42,8 @@ class FlightRepository{
             const flight = await Flight.findByPk(flightid);
             return flight;
         } catch (error) {
-            console.log("Error in repository layer");
-            throw {error};
+            error = {...error, from: "Repository Layer"};
+            throw error;
         }
     }
 
@@ -52,15 +51,31 @@ class FlightRepository{
         try{
             const filter = this.#createfilter(filterData);
             const flights = await Flight.findAll({where: filter});
-            // const flights = await Flight.findAll({where: {
-            //     price: {
-            //         [Op.between]: [3000, 6000]
-            //     }
-            // }});
             return flights;
         } catch(error) {
-            console.log("Error in repository layer");
-            throw {error};
+            error = {...error, from: "Repository Layer"};
+            throw error;
+        }
+    }
+
+    async updateFlight(id, data){
+        try {
+            await Flight.update(data, {where:{id: id}});
+            return true;
+        } catch (error) {
+            error = {...error, from: "Repository Layer"};
+            throw error;
+        }
+    }
+
+    async deleteFlight(id){
+        try {
+            await Flight.destroy({where: {id: id}});
+            return true;
+        } catch (error) {
+            console.log(error);
+            error = {...error, from: "Repository Layer"};
+            throw error;
         }
     }
 }

@@ -69,10 +69,50 @@ const getFlights = async (req, res) => {
         return res.status(500).json({
             data: {},
             success: false,
-            message: "Not able create a Flight",
+            message: "Not able get Flights",
             err: error
         });
     }
 }
 
-module.exports = {create, get, getFlights};
+const updateFlight = async (req, res) => {
+    try {
+        const response = await flightServiceObj.updateFlight(req.params.id, req.body);
+        return res.status(201).json({
+            data: response,
+            success: true,
+            message: "Successfully updated Flight",
+            err: {}
+        });
+    } catch (error) {
+        console.log(error);
+        return res.status(500).json({
+            data: {},
+            success: false,
+            message: "Not able update Flight",
+            err: error
+        });
+    }
+}
+
+const deleteFlight = async (req, res) => {
+    try {
+        const response = await flightServiceObj.deleteFlight(req.params.id);
+        return res.status(201).json({
+            data: response,
+            success: true,
+            message: "Successfully deleted Flight",
+            err: {}
+        })
+    } catch (error) {
+        console.log(error);
+        return res.status(500).json({
+            data: {},
+            success: false,
+            message: "Not able delete Flight",
+            err: error
+        });
+    }
+}
+
+module.exports = {create, get, getFlights, updateFlight, deleteFlight};
