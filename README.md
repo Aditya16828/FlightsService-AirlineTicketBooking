@@ -12,6 +12,38 @@ Features:
 
 ## DB Designs
 
+- Airplane Table
+  - id
+  - model_number
+  - capacity
+- Flights Table
+  - id
+  - airplaneid
+  - src_airport_id
+  - dest_airport_id
+  - arrival_datetime
+  - departure_datetime
+  - flight_number
+  - price
+  - boardingGate
+  - totalSeats
+- City table
+  - id
+  - name
+- Airport Table
+  - id
+  - name
+  - city_id
+  - address
+  - created_at
+  - updated_at
+
+- _1 airplane_ can be used in _more than 1 flights_. Hence, there is a **one-to-many relationship between Airplane and Flights table**.
+- _1 city_ can have _many airports_ but _1 airport_ belongs to only _1 city_. **One-to-many relationship between City and Airport table**.
+- From _1 Airport_, _many Flights_ can fly, but _one flight_ can belong to only _1 airport_. **One-to-many relationship between Airport and Flight table**.
+
+![DB Design Image](./docImages/DB%20Designs.jpeg)
+
 ## APIs exposed and its corresponding URLS
 
 _All the APIs are CRUD based._
