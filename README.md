@@ -97,4 +97,24 @@ Request format (delete)
 
 ### City Airport APIs
 
+- **For creating Airport**
+
+- **To fetch all the Airports of a particular City**
+
+- **To fetch a particular Airport**
+
+- **To delete an Airport**
+
+- **To update details of an Airport**
+
 ### Flight APIs
+
+- **For creating a Flight**
+
+- **To fetch a Flight**
+
+- **To fetch all the Flights in DB**
+
+- **To delete a Flight**
+
+- **To update a Flight**
