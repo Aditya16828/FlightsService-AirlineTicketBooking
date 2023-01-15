@@ -98,14 +98,40 @@ Request format (delete)
 ### City Airport APIs
 
 - **For creating Airport**
+URL = <http://localhost:3003/api/v1/city/airport/:cityid>
+Request format (post, sent in body) (json):
+
+```json
+[
+  {
+   "name":"<AIRPORT_NAME>",
+   "address": "<AIRPORT_ADDRESS>" (optional)
+  }
+]
+```
 
 - **To fetch all the Airports of a particular City**
+URL = <http://localhost:3003/api/v1/city/airport/:cityid>
+Request format (get)
 
 - **To fetch a particular Airport**
+URL = <http://localhost:3003/api/v1/airport/:id>
+Request format (get)
 
 - **To delete an Airport**
+URL = <http://localhost:3003/api/v1/airport/:id>
+Request format (delete)
 
 - **To update details of an Airport**
+URL = <http://localhost:3003/api/v1/airport/:id>
+Request format (patch, sent in body) (json):
+
+```json
+{
+ "name":"<AIRPORT_NAME>", (optional)
+ "address": "<AIRPORT_ADDRESS>" (optional)
+}
+```
 
 ### Flight APIs
 
